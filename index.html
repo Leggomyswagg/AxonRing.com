@@ -399,6 +399,96 @@
     .faq-a.open { max-height: 200px; padding-bottom: 28px; }
     .faq-a p { font-size: 13px; color: var(--stone-light); line-height: 2; letter-spacing: 0.04em; }
 
+    /* ── Lifestyle ── */
+    .lifestyle { padding: 140px 56px; border-top: 1px solid var(--border-soft); }
+    .lifestyle-inner { max-width: 1200px; margin: 0 auto; }
+    .lifestyle-header { text-align: center; margin-bottom: 80px; }
+    .lifestyle-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .lifestyle-title { font-family: var(--ff-serif); font-size: clamp(36px, 5vw, 60px); font-weight: 300; line-height: 1.1; }
+    .lifestyle-title em { font-style: italic; color: var(--gold-light); }
+    .lifestyle-sub { font-size: 13px; color: var(--stone-light); margin-top: 20px; letter-spacing: 0.08em; line-height: 1.8; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 280px;
+      gap: 1px;
+      background: var(--border-soft);
+    }
+    .ls-tile {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink-2);
+      cursor: none;
+    }
+    .ls-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+      filter: brightness(0.85) saturate(0.92);
+    }
+    .ls-tile:hover img {
+      transform: scale(1.06);
+      filter: brightness(1) saturate(1);
+    }
+    .ls-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 10, 8, 0.4) 60%, rgba(12, 10, 8, 0.96) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      transition: background 0.5s ease;
+    }
+    .ls-tile:hover .ls-overlay { background: linear-gradient(180deg, rgba(12, 10, 8, 0.2) 0%, rgba(12, 10, 8, 0.6) 60%, rgba(12, 10, 8, 0.98) 100%); }
+    .ls-num {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .ls-name {
+      font-family: var(--ff-serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .ls-desc {
+      font-size: 12px;
+      color: var(--stone-light);
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    }
+    .ls-tile:hover .ls-desc {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1100px) {
+      .lifestyle-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; }
+    }
+    @media (max-width: 900px) {
+      .lifestyle { padding: 80px 24px; }
+      .lifestyle-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+      .ls-overlay { padding: 18px 16px; }
+      .ls-name { font-size: 16px; }
+      .ls-desc { display: none; }
+    }
+    @media (max-width: 480px) {
+      .lifestyle-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+    }
+
     /* ── Final CTA ── */
     .finale {
       padding: 180px 56px;
@@ -482,6 +572,7 @@
     <div class="nav-wordmark">Axon<span>Ring</span></div>
     <div class="nav-links" id="nav-links">
       <a href="#capabilities">Capabilities</a>
+      <a href="#lifestyle">Lifestyle</a>
       <a href="#collections">Collections</a>
       <a href="#provenance">Craftsmanship</a>
       <a href="#faq">FAQ</a>
@@ -629,6 +720,127 @@
           <span class="prov-spec-name">Sizing</span>
           <span class="prov-spec-val">US 6 — 13</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LIFESTYLE ── -->
+  <section id="lifestyle" class="lifestyle" aria-labelledby="lifestyle-heading">
+    <div class="lifestyle-inner">
+      <div class="lifestyle-header reveal">
+        <span class="lifestyle-label">In Your Day</span>
+        <h2 class="lifestyle-title" id="lifestyle-heading">Designed for<br/><em>Every Moment</em></h2>
+        <p class="lifestyle-sub">From the first light of morning to the quiet of evening — AxonRing belongs in every part of your day, witnessed and unwitnessed.</p>
+      </div>
+
+      <div class="lifestyle-grid" role="list">
+        <article class="ls-tile reveal" role="listitem">
+          <img src="images/1-morning-wakeup.jpg" alt="Morning wake-up with AxonRing tracking sleep" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">i. Morning</span>
+            <h3 class="ls-name">The Quiet Wake</h3>
+            <p class="ls-desc">Sleep cycles measured. Gentle alarms. Your day's first briefing — no phone reached for.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d1" role="listitem">
+          <img src="images/2-fitness-gym.jpg" alt="Fitness training with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">ii. Train</span>
+            <h3 class="ls-name">Without Limits</h3>
+            <p class="ls-desc">Heart rate, recovery, and form — measured precisely. Sweat-proof. Engineered to keep up.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d2" role="listitem">
+          <img src="images/3-outdoor-running.jpg" alt="Outdoor running with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">iii. Run</span>
+            <h3 class="ls-name">Phone-Free</h3>
+            <p class="ls-desc">GPS, pace, and route — built into the ring. Leave the phone. Take the road.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d3" role="listitem">
+          <img src="images/4-professional-office.jpg" alt="Professional office with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">iv. Work</span>
+            <h3 class="ls-name">Discreet Command</h3>
+            <p class="ls-desc">Calendar, mail, VIP filtering — what matters surfaces. The rest, never seen.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal" role="listitem">
+          <img src="images/5-coffee-shop.jpg" alt="Coffee shop with AxonRing payments" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">v. Pay</span>
+            <h3 class="ls-name">A Single Gesture</h3>
+            <p class="ls-desc">Visa, Mastercard, Amex. Your morning coffee — one motion, nothing more.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d1" role="listitem">
+          <img src="images/6-meditation-mindfulness.jpg" alt="Meditation with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">vi. Breathe</span>
+            <h3 class="ls-name">Stillness, Measured</h3>
+            <p class="ls-desc">Guided sessions. Stress detection. Biofeedback that returns you to centre.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d2" role="listitem">
+          <img src="images/7-travel-airport.jpg" alt="Travel and airport with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">vii. Travel</span>
+            <h3 class="ls-name">Boarding on Hand</h3>
+            <p class="ls-desc">Boarding pass. Gate alerts. Luggage pings — without searching through bags.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d3" role="listitem">
+          <img src="images/8-evening-relaxation.jpg" alt="Evening reading with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">viii. Unwind</span>
+            <h3 class="ls-name">Deeper Quiet</h3>
+            <p class="ls-desc">Focus mode. DND scheduling. Engineered for evenings that lead to better sleep.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal" role="listitem">
+          <img src="images/9-social-dinner.jpg" alt="Social dinner with AxonRing" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">ix. Connect</span>
+            <h3 class="ls-name">Skip the Card</h3>
+            <p class="ls-desc">Contacts, profiles, socials — shared in one tap. Networking, refined.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d1" role="listitem">
+          <img src="images/10-health-cycling.jpg" alt="Cycling with AxonRing health tracking" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">x. Ride</span>
+            <h3 class="ls-name">Telemetry, Worn</h3>
+            <p class="ls-desc">Cadence. Elevation. Power. Every metric — on your finger, in real time.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d2" role="listitem">
+          <img src="images/11-product-hero.jpg" alt="AxonRing product detail close-up" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">xi. Detail</span>
+            <h3 class="ls-name">Engineering, Visible</h3>
+            <p class="ls-desc">Premium ceramic. Precise sensor array. Built to a standard you can feel.</p>
+          </div>
+        </article>
+
+        <article class="ls-tile reveal reveal-d3" role="listitem">
+          <img src="images/12-lifestyle-flatlay.jpg" alt="AxonRing packaging and lifestyle composition" loading="lazy" />
+          <div class="ls-overlay">
+            <span class="ls-num">xii. Begin</span>
+            <h3 class="ls-name">Focus. Balance. Thrive.</h3>
+            <p class="ls-desc">Premium packaging. Sizing kit. Concierge setup — a complete, considered system.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
