@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g1" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#F2D070"/>
+      <stop offset="45%"  stop-color="#C9A030"/>
+      <stop offset="100%" stop-color="#9A7010"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#EAC858"/>
+      <stop offset="100%" stop-color="#B88820"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="20" fill="#090910"/>
+
+  <!-- === A GLYPH === -->
+  <!-- Left leg: wide at bottom, narrows to apex -->
+  <path d="
+    M 15 84
+    L 27 84
+    L 51 22
+    L 51 22
+    L 47 22
+    Z"
+    fill="url(#g1)"
+  />
+  <!-- Right leg -->
+  <path d="
+    M 85 84
+    L 73 84
+    L 49 22
+    L 53 22
+    Z"
+    fill="url(#g1)"
+  />
+  <!-- Crossbar -->
+  <rect x="30" y="57" width="40" height="7.5" rx="2.5" fill="url(#g1)"/>
+
+  <!-- === ORBITAL RING === -->
+  <!-- Bottom half of circle (below A legs) — draw first -->
+  <path d="M 21 42 A 29 29 0 0 0 79 42"
+    fill="none" stroke="url(#g2)" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Cover left leg overlap with bg color so ring appears behind legs -->
+  <path d="
+    M 15 84
+    L 27 84
+    L 51 22
+    L 47 22
+    Z"
+    fill="#090910"
+  />
+  <!-- Cover right leg overlap -->
+  <path d="
+    M 85 84
+    L 73 84
+    L 49 22
+    L 53 22
+    Z"
+    fill="#090910"
+  />
+
+  <!-- Re-draw A legs over the bottom circle -->
+  <!-- Left leg -->
+  <path d="
+    M 16 84
+    L 28 84
+    L 50 24
+    L 46 24
+    Z"
+    fill="url(#g1)"
+  />
+  <!-- Right leg -->
+  <path d="
+    M 84 84
+    L 72 84
+    L 50 24
+    L 54 24
+    Z"
+    fill="url(#g1)"
+  />
+  <!-- Crossbar (on top) -->
+  <rect x="30" y="57" width="40" height="7.5" rx="2.5" fill="url(#g1)"/>
+
+  <!-- Top arc of circle (above A peak, always visible) -->
+  <path d="M 21 42 A 29 29 0 0 1 79 42"
+    fill="none" stroke="url(#g2)" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Center dot -->
+  <circle cx="50" cy="42" r="5.5" fill="url(#g2)"/>
+</svg>
