@@ -204,9 +204,9 @@
 
     .hero-h1 {
       font-family: var(--ff-head);
-      font-size: clamp(38px, 5vw, 64px);
+      font-size: clamp(36px, 4.5vw, 60px);
       font-weight: 900;
-      line-height: 1.08;
+      line-height: 1.15;
       letter-spacing: -0.01em;
       margin-bottom: 28px;
     }
@@ -720,6 +720,24 @@
     .hero-right { animation: fade-in 1.2s ease 0.3s both; }
 
     /* ── RESPONSIVE ── */
+
+    /* Medium screens: collapse nav links into hamburger early enough that
+       logo + CTA + links never crowd each other (links alone need ~350px) */
+    @media (max-width: 1060px) {
+      nav { padding: 0 28px; }
+      .nav-center { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-center.open {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 24px;
+        position: fixed; top: 72px; left: 0; right: 0; z-index: 199;
+        background: rgba(7,8,15,0.98); padding: 32px 28px;
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+      }
+      .nav-center.open a {
+        font-size: 16px; font-weight: 600; color: var(--white);
+      }
+    }
     @media (max-width: 1024px) {
       .benefits-grid { grid-template-columns: repeat(2,1fr); }
       .news-grid { grid-template-columns: repeat(2,1fr); }
@@ -727,15 +745,8 @@
       .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 860px) {
-      nav { padding: 0 24px; }
-      .nav-center { display: none; }
-      .nav-hamburger { display: flex; }
-      .nav-center.open {
-        display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
-        position: fixed; top: 72px; left: 0; right: 0;
-        background: rgba(7,8,15,0.98); padding: 28px 24px;
-        border-bottom: 1px solid var(--border);
-      }
+      nav { padding: 0 20px; }
+      .nav-cta { font-size: 10px; padding: 9px 16px; letter-spacing: 0.08em; }
       .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 56px; }
       .hero-right { order: -1; }
       .ring-wrap { width: 300px; height: 300px; }
@@ -755,8 +766,8 @@
       .waitlist-form { flex-direction: column; }
     }
     @media (max-width: 600px) {
-      .hero-h1 { font-size: clamp(32px, 8vw, 50px); }
-      .nav-cta { font-size: 10px; padding: 8px 14px; letter-spacing: 0.06em; }
+      .hero-h1 { font-size: clamp(30px, 8vw, 48px); }
+      .nav-cta { font-size: 9px; padding: 8px 12px; letter-spacing: 0.06em; }
       .benefits-grid { grid-template-columns: 1fr; }
       .market-stats-inner { grid-template-columns: 1fr 1fr; }
       .news-grid { grid-template-columns: 1fr; }
