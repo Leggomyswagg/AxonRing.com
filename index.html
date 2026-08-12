@@ -361,6 +361,37 @@
       background: rgba(201,168,76,0.03);
     }
 
+    /* ── Category split ── */
+    .category-split { margin-top: 64px; }
+    .cs-intro {
+      font-size: 14px; color: var(--stone-light); line-height: 1.9; letter-spacing: 0.03em;
+      max-width: 620px; margin: 0 auto 40px; text-align: center;
+    }
+    .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-soft); }
+    .cs-card { background: var(--ink-2); padding: 40px 36px; }
+    .cs-card-active { border-top: 2px solid var(--gold); }
+    .cs-card-other { border-top: 2px solid var(--stone); opacity: 0.82; }
+    .cs-tag {
+      display: inline-block; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--ink); background: var(--gold); padding: 5px 12px; margin-bottom: 20px;
+    }
+    .cs-tag-other { color: var(--stone-light); background: rgba(140,123,107,0.18); }
+    .cs-title { font-family: var(--ff-serif); font-size: 26px; font-weight: 400; color: var(--cream); margin-bottom: 14px; }
+    .cs-card-other .cs-title { color: var(--stone-light); }
+    .cs-desc { font-size: 13px; color: var(--stone-light); line-height: 1.9; letter-spacing: 0.03em; margin-bottom: 24px; }
+    .cs-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .cs-list li { font-size: 12.5px; color: var(--stone-light); line-height: 1.7; padding-left: 20px; position: relative; letter-spacing: 0.02em; }
+    .cs-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    .cs-list-other li::before { color: var(--stone); }
+    .cs-footnote {
+      margin-top: 32px; font-size: 12px; color: var(--stone); letter-spacing: 0.04em;
+      line-height: 1.8; text-align: center; max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    @media (max-width: 900px) {
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-card { padding: 32px 28px; }
+    }
+
     /* ── Provenance / specs ── */
     .provenance {
       padding: 140px 56px;
@@ -379,6 +410,10 @@
     }
     .prov-spec-name { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); }
     .prov-spec-val { font-family: var(--ff-serif); font-size: 18px; color: var(--cream); font-weight: 400; }
+    .prov-caveat {
+      grid-column: 1 / -1; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-soft);
+      font-size: 12px; color: var(--stone); line-height: 1.8; letter-spacing: 0.03em; text-align: center;
+    }
 
     /* ── Collections (products) ── */
     #collections { padding: 140px 56px; }
@@ -912,7 +947,36 @@
         </div>
       </div>
 
-      <p class="caps-honest reveal">What it doesn't do: this ring has no battery, screen, sensors, or payment chip. It does not make card payments, track health, or replace a security key. If a smart ring promises those, it's a different (battery-powered) category of product.</p>
+      <div class="category-split reveal">
+        <p class="cs-intro">"Smart ring" covers two genuinely different products. Here's exactly which one this is, and what the other kind requires.</p>
+        <div class="cs-grid">
+          <div class="cs-card cs-card-active">
+            <span class="cs-tag">This Product</span>
+            <h3 class="cs-title">Passive NFC</h3>
+            <p class="cs-desc">No battery, no chip beyond a sealed NFC tag. Powered entirely by the phone reading it. What it does: share a contact card, open a link, trigger a phone automation, and — where the system supports it — act as an access credential.</p>
+            <ul class="cs-list">
+              <li>Battery: none — never charges, never dies</li>
+              <li>Electronics: one passive NFC chip, no sensors</li>
+              <li>Payments: no — can hold a payment link, not a card</li>
+              <li>Health tracking: no — no sensors present</li>
+              <li>Security key (FIDO2/WebAuthn): no — not a certified authenticator</li>
+            </ul>
+          </div>
+          <div class="cs-card cs-card-other">
+            <span class="cs-tag cs-tag-other">A Different Category</span>
+            <h3 class="cs-title">Battery-Powered Health Ring</h3>
+            <p class="cs-desc">A separate class of product with an internal battery, sensors, and charging case — the category that health-tracking and payment-capable rings actually belong to. We don't currently sell this type of ring.</p>
+            <ul class="cs-list cs-list-other">
+              <li>Requires: rechargeable battery + charging case</li>
+              <li>Requires: onboard sensors (PPG, temperature, accelerometer)</li>
+              <li>Payments: only with a bank-certified secure element (e.g. NFC-certified Visa/Mastercard partner)</li>
+              <li>Health tracking: only with the sensors above, plus app processing</li>
+              <li>Security key: only with a certified FIDO2/WebAuthn secure element</li>
+            </ul>
+          </div>
+        </div>
+        <p class="cs-footnote">If a passive NFC ring's listing claims heart-rate tracking, GPS, or card payments without a battery and a certified secure element, treat that as marketing, not spec.</p>
+      </div>
     </div>
   </section>
 
@@ -944,8 +1008,12 @@
           <span class="prov-spec-val">Rewritable NFC storage (contact card, links, automations)</span>
         </div>
         <div class="prov-spec" role="listitem">
-          <span class="prov-spec-name">Power</span>
-          <span class="prov-spec-val">Passive NFC — No Battery</span>
+          <span class="prov-spec-name">Battery</span>
+          <span class="prov-spec-val">None — passive, N/A</span>
+        </div>
+        <div class="prov-spec" role="listitem">
+          <span class="prov-spec-name">Sensors</span>
+          <span class="prov-spec-val">None</span>
         </div>
         <div class="prov-spec" role="listitem">
           <span class="prov-spec-name">Sizing</span>
@@ -953,6 +1021,7 @@
         </div>
       </div>
     </div>
+    <p class="prov-caveat reveal">Full teardown documentation (chip model, exact memory capacity, X-ray) is in progress and will be published here once verified against production units — we won't post numbers we haven't confirmed ourselves.</p>
   </section>
 
   <!-- ── LIFESTYLE ── -->
