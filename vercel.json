@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "rewrites": [{ "source": "/", "destination": "/index-v2.html" }],
   "headers": [
     {
       "source": "/(.*)",
