@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AxonRing Specs & FAQ — Technical Details</title>
+  <meta name="description" content="Full AxonRing specifications, compatibility, sizing, returns, and FAQ. Passive NFC ceramic ring — no battery, no health sensors, no card payments." />
+  <link rel="canonical" href="https://axonring.com/specs.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#090806;--panel:#12100d;--gold:#c9a84c;--gold2:#f0d48b;--text:#faf7f0;--muted:#a99b8c;--line:rgba(201,168,76,.18);--max:900px}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:Jost,system-ui,sans-serif;font-weight:300;line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .promo{background:var(--gold);color:#090806;text-align:center;font-size:12px;font-weight:500;letter-spacing:.06em;padding:10px 16px}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(9,8,6,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1120px,calc(100% - 40px));margin:0 auto}
+    .logo{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.14em;text-transform:uppercase}
+    .logo b{color:var(--gold)}
+    .links{display:flex;gap:28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .links a:hover{color:var(--gold2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;transition:.25s}
+    .btn.primary{background:var(--gold);color:#090806}.btn.primary:hover{background:var(--gold2)}
+    .btn.secondary{border-color:var(--line)}.btn.secondary:hover{border-color:var(--gold);color:var(--gold2)}
+    .nav-cta{padding:10px 18px;font-size:11px}
+    .hero{padding:64px 0 32px}
+    .eyebrow{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(34px,4.5vw,48px);line-height:1.12;margin-bottom:12px}
+    .lead{color:var(--muted)}
+    h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:30px;margin:40px 0 16px}
+    table{width:100%;border-collapse:collapse;margin-bottom:8px}
+    th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px}
+    th{color:var(--gold);font-weight:500;width:38%}
+    td{color:var(--muted)}
+    details{border-bottom:1px solid var(--line);padding:16px 0}
+    summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:400}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";color:var(--gold)}
+    details[open] summary::after{content:"–"}
+    details p{color:var(--muted);margin-top:12px}
+    .cta{margin:48px 0;text-align:center}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px;margin-top:40px}
+    .footerin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;width:min(1120px,calc(100% - 40px));margin:0 auto}
+    .smalllinks{display:flex;gap:18px}.smalllinks a:hover{color:var(--gold2)}
+    @media(max-width:900px){.links{display:none}}
+  </style>
+</head>
+<body>
+  <div class="promo">Technical details · Straight answers</div>
+  <header class="nav">
+    <div class="navin">
+      <a class="logo" href="/">AXON<b>RING</b></a>
+      <nav class="links">
+        <a href="/#collection">Shop</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/executive.html">Executive</a>
+        <a href="/prestige.html">Prestige</a>
+      </nav>
+      <a class="btn primary nav-cta" href="/#collection">Shop</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Specs & FAQ</span>
+      <h1>Built to last. Documented clearly.</h1>
+      <p class="lead">Sealed ceramic. Passive NFC chip. Nothing to charge, nothing to break.</p>
+    </section>
+
+    <h2>Technical specifications</h2>
+    <table>
+      <tr><th>Body</th><td>Sealed ceramic (hypoallergenic)</td></tr>
+      <tr><th>Chip</th><td>Passive NFC (ISO 14443 / NTAG series)</td></tr>
+      <tr><th>Power</th><td>None — energy harvested from the phone’s NFC field</td></tr>
+      <tr><th>Water resistance</th><td>Suitable for showers, swimming, daily wear</td></tr>
+      <tr><th>Sizes</th><td>US 6–13</td></tr>
+      <tr><th>Compatibility</th><td>iPhone 7 and newer; most NFC Android phones</td></tr>
+      <tr><th>Rewrite</th><td>Yes — thousands of times with free apps (e.g. NFC Tools)</td></tr>
+      <tr><th>Warranty</th><td>1 year (Executive) / 2 years (Prestige)</td></tr>
+      <tr><th>Returns</th><td>30 days, full refund</td></tr>
+    </table>
+
+    <h2>FAQ</h2>
+
+    <details open>
+      <summary>What ring sizes are available?</summary>
+      <p>US sizes 6 through 13. After you order, we ship a free sizing kit first — you confirm your exact size before your ring ships. International conversions are in the guide included with the kit.</p>
+    </details>
+    <details>
+      <summary>Can it make contactless payments?</summary>
+      <p>No — and any passive NFC ring claiming otherwise is overpromising. AxonRing has no secure payment chip, so it can’t pay at card terminals. What it can hold is a payment link (PayPal.me, Venmo, Cash App) that opens on the other person’s phone when they tap your ring — useful for getting paid, not for paying.</p>
+    </details>
+    <details>
+      <summary>Is the ring waterproof?</summary>
+      <p>Yes for normal use. Because there’s no battery or electronics beyond the sealed passive chip, the ring handles showers, swimming, and daily wear without issue. We don’t recommend prolonged deep-water exposure.</p>
+    </details>
+    <details>
+      <summary>Does it need charging?</summary>
+      <p>Never. The chip is passive — it draws its power from the phone reading it. No battery, no charging, nothing to die.</p>
+    </details>
+    <details>
+      <summary>Will it open my office / apartment door?</summary>
+      <p>Only if your access system accepts a standard NFC credential and your administrator is willing to enroll the ring. Many modern systems can; many older proprietary ones cannot. Check with your building first.</p>
+    </details>
+    <details>
+      <summary>What phones work?</summary>
+      <p>Any iPhone 7 or newer and virtually all Android phones with NFC. The other person does not need an app installed.</p>
+    </details>
+    <details>
+      <summary>How do I change what’s on the ring?</summary>
+      <p>Use any free NFC writing app (NFC Tools is a common choice). Takes about a minute. A step-by-step guide is included in the box.</p>
+    </details>
+    <details>
+      <summary>What if it doesn’t fit?</summary>
+      <p>We ship a free sizing kit first. You only receive the final ring after confirming your size. This eliminates almost all fit issues.</p>
+    </details>
+    <details>
+      <summary>What is your return policy?</summary>
+      <p>30-day no-questions-asked returns with full refund. Email support@axonring.com to start a return. Executive includes a 1-year warranty; Prestige includes 2 years, covering chip or material failure in normal use.</p>
+    </details>
+    <details>
+      <summary>How secure is my data?</summary>
+      <p>The ring stores only what you write to it — typically a contact card or link, which is information you intend to share. You can erase or rewrite it anytime. Nothing on the ring connects to the internet, and we never see or store what you put on it.</p>
+    </details>
+    <details>
+      <summary>Does it track health?</summary>
+      <p>No sensors. No battery. No health tracking. If you need sleep, HRV, or SpO2, choose a dedicated health ring.</p>
+    </details>
+
+    <div class="cta">
+      <a class="btn primary" href="/#collection">Shop the Collection</a>
+      <a class="btn secondary" style="margin-left:10px" href="/compare.html">See comparison</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerin">
+      <div>© 2026 AxonRing</div>
+      <div class="smalllinks">
+        <a href="/">Home</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:support@axonring.com">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
