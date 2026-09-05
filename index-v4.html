@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AxonRing — Ceramic NFC Ring | Share, Unlock, Automate</title>
+  <meta name="description" content="AxonRing is a sealed ceramic NFC ring. Share your contact card or any link with a tap. Trigger phone automations. Never needs charging. No subscription. No health-tracking hype." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://axonring.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://axonring.com/" />
+  <meta property="og:title" content="AxonRing — Your card. Your link. Your door. On one finger." />
+  <meta property="og:description" content="Premium passive NFC ring. Share contacts and links, trigger automations, never charge. Honest product. No fake health or payment claims." />
+  <meta property="og:image" content="https://axonring.com/images/11-product-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AxonRing — Ceramic NFC Ring" />
+  <meta name="twitter:description" content="Share, unlock, automate. No battery. No subscription. No overselling." />
+  <meta name="twitter:image" content="https://axonring.com/images/11-product-hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090806;
+      --panel: #12100d;
+      --gold: #c9a84c;
+      --gold2: #f0d48b;
+      --text: #faf7f0;
+      --muted: #a99b8c;
+      --line: rgba(201,168,76,.18);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Jost, system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .promo {
+      background: var(--gold);
+      color: #090806;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 10px 16px;
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(9,8,6,.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .navin {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .logo b { color: var(--gold); }
+    .links {
+      display: flex;
+      gap: 28px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .links a:hover { color: var(--gold2); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+    .btn.primary { background: var(--gold); color: #090806; }
+    .btn.primary:hover { background: var(--gold2); }
+    .btn.secondary { border-color: var(--line); color: var(--text); }
+    .btn.secondary:hover { border-color: var(--gold); color: var(--gold2); }
+    .nav-cta { padding: 10px 18px; font-size: 11px; }
+    .hero {
+      padding: 88px 0 72px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(40px, 5.5vw, 64px);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--gold2); }
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .checklist { list-style: none; color: var(--muted); font-size: 14px; }
+    .checklist li { padding: 6px 0; padding-left: 22px; position: relative; }
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 13px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .hero-visual {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .hero-visual img { width: 100%; height: auto; }
+    .section { padding: 88px 0; }
+    .section.alt { background: #0d0b09; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .head { max-width: 640px; margin-bottom: 40px; }
+    h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .head p { color: var(--muted); }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+    .card .num {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .card p { color: var(--muted); font-size: 15px; }
+    .honest {
+      margin-top: 24px;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      background: rgba(201,168,76,.06);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .honest strong { color: var(--gold2); }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .split article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 32px;
+    }
+    .split h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .split ul { list-style: none; color: var(--muted); }
+    .split li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .split li:last-child { border-bottom: 0; }
+    .productgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .product {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .product.featured { border-color: rgba(201,168,76,.45); }
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #090806;
+      background: var(--gold);
+      padding: 4px 10px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .product h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .price {
+      font-size: 28px;
+      color: var(--gold2);
+      margin-bottom: 12px;
+    }
+    .product > p { color: var(--muted); margin-bottom: 18px; flex-grow: 1; }
+    .product ul {
+      list-style: none;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .product li { padding: 6px 0; padding-left: 18px; position: relative; }
+    .product li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .step {
+      border: 1px solid var(--line);
+      padding: 24px;
+      background: var(--panel);
+    }
+    .step span {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+    .step h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .step p { color: var(--muted); font-size: 14px; }
+    .specstrip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .specstrip div {
+      text-align: center;
+      padding: 24px 12px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .specstrip strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--gold2);
+      margin-bottom: 6px;
+    }
+    .specstrip span { color: var(--muted); font-size: 13px; }
+    .note {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .note img {
+      border: 1px solid var(--line);
+      width: 100%;
+    }
+    .quote {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      line-height: 1.35;
+      margin: 16px 0;
+    }
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 400;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--gold); }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); margin-top: 12px; max-width: 720px; }
+    .final {
+      text-align: center;
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+    }
+    .final h2 { margin-bottom: 12px; }
+    .final p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footerin {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .smalllinks { display: flex; gap: 18px; }
+    .smalllinks a:hover { color: var(--gold2); }
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero, .split, .productgrid, .note { grid-template-columns: 1fr; }
+      .grid3, .steps, .specstrip { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="promo">Free sizing kit with every order · Free worldwide shipping over $199 · 30-day returns</div>
+
+  <header class="nav">
+    <div class="wrap navin">
+      <a class="logo" href="/">AXON<b>RING</b></a>
+      <nav class="links">
+        <a href="#what">What it does</a>
+        <a href="#collection">Shop</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/specs.html">Specs & FAQ</a>
+      </nav>
+      <a class="btn primary nav-cta" href="#collection">Shop</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <span class="eyebrow">Ceramic NFC Ring · No Battery · No Subscription</span>
+        <h1>Your card. Your link.<br><em>Your door.</em><br>On one finger.</h1>
+        <p class="lead">
+          AxonRing is a sealed ceramic NFC ring. Tap any modern phone to share your contact card or a link.
+          Use it for access where your building allows. It never needs charging — and it doesn’t pretend to be a health tracker or a credit card.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#collection">Shop the Collection</a>
+          <a class="btn secondary" href="#what">See exactly what it does</a>
+        </div>
+        <ul class="checklist">
+          <li>Works on iPhone 7+ and NFC Android phones (they need no app)</li>
+          <li>Rewrite anytime with a free NFC app</li>
+          <li>Never charges, never dies</li>
+          <li>Free sizing kit ships first so it fits</li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <img src="images/11-product-hero.jpg" alt="AxonRing ceramic NFC ring" />
+      </div>
+    </section>
+
+    <section id="what" class="section alt">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">What it actually does</span>
+          <h2>Three useful things. Done cleanly.</h2>
+          <p>No sensors theater. No payment theater. Just reliable NFC that fits daily life.</p>
+        </div>
+        <div class="grid3">
+          <article class="card">
+            <span class="num">01 · SHARE</span>
+            <h3>Digital business card</h3>
+            <p>Tap any phone → your contact card, LinkedIn, Instagram, portfolio, or payment link appears instantly. No app required on their side.</p>
+          </article>
+          <article class="card">
+            <span class="num">02 · UNLOCK</span>
+            <h3>Access where allowed</h3>
+            <p>Where your office, gym, or apartment system accepts standard NFC credentials, the ring can act as your key. Not every system works — we tell you how to check.</p>
+          </article>
+          <article class="card">
+            <span class="num">03 · AUTOMATE</span>
+            <h3>Phone shortcuts</h3>
+            <p>Tap your own phone to trigger Shortcuts or Android routines: silence notifications, start a timer, open an app, or run a smart-home scene.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Honesty builds trust</span>
+          <h2>What it does not do</h2>
+          <p>Clear boundaries make the product easier to buy — and harder to regret.</p>
+        </div>
+        <div class="split">
+          <article>
+            <h3>Included</h3>
+            <ul>
+              <li>Passive NFC contact & link sharing</li>
+              <li>Phone automation triggers</li>
+              <li>Rewritable NFC memory</li>
+              <li>Access enrollment where systems allow</li>
+              <li>No battery and no subscription</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Not included</h3>
+            <ul>
+              <li>Contactless card payments at Visa/Mastercard terminals</li>
+              <li>Heart rate, sleep, SpO2, ECG, or blood pressure</li>
+              <li>GPS or activity tracking</li>
+              <li>FIDO2 / security-key authentication</li>
+            </ul>
+          </article>
+        </div>
+        <div class="honest">
+          <strong>Trust is part of the product.</strong>
+          If you need health metrics, buy an Oura or Galaxy Ring. If you need true terminal payments, buy a certified payment ring.
+          AxonRing is for sharing, simple access, and automations — without another device to charge.
+        </div>
+      </div>
+    </section>
+
+    <section id="collection" class="section alt">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">The collection</span>
+          <h2>Choose your finish.</h2>
+          <p>One-time purchase. Free sizing kit. Secure checkout via Stripe. 30-day returns.</p>
+        </div>
+        <div class="productgrid">
+          <article class="product">
+            <span class="eyebrow">Everyday</span>
+            <h3>Executive</h3>
+            <div class="price">$349</div>
+            <p>Matte black ceramic. The everyday AxonRing for contact sharing, links, and phone shortcuts.</p>
+            <ul>
+              <li>Sealed matte black ceramic</li>
+              <li>Passive NFC · rewritable</li>
+              <li>No battery ever</li>
+              <li>Free sizing kit</li>
+              <li>1-year warranty</li>
+              <li>30-day returns</li>
+            </ul>
+            <a class="btn secondary" href="/executive.html">View Executive</a>
+            <a class="btn primary" style="margin-top:10px" href="https://buy.stripe.com/4gM7sD7sm7Aq4xDdBc4c800" rel="noopener">Buy Executive — $349</a>
+          </article>
+          <article class="product featured">
+            <span class="badge">Most Popular</span>
+            <h3>Prestige</h3>
+            <div class="price">$459</div>
+            <p>Polished ceramic with gold detail. Same NFC capabilities in the flagship finish.</p>
+            <ul>
+              <li>Everything in Executive</li>
+              <li>Polished ceramic + gold accent</li>
+              <li>Premium gift packaging</li>
+              <li>Priority support</li>
+              <li>2-year warranty</li>
+              <li>30-day returns</li>
+            </ul>
+            <a class="btn secondary" href="/prestige.html">View Prestige</a>
+            <a class="btn primary" style="margin-top:10px" href="https://buy.stripe.com/dRm8wH3c69Iyggl8gS4c801" rel="noopener">Buy Prestige — $459</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">How it works</span>
+          <h2>Up and running in minutes.</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span>01</span>
+            <h3>Order</h3>
+            <p>We ship a free sizing kit first so you confirm the fit.</p>
+          </div>
+          <div class="step">
+            <span>02</span>
+            <h3>Confirm size</h3>
+            <p>Tell us your size. Your ring is produced and ships tracked worldwide.</p>
+          </div>
+          <div class="step">
+            <span>03</span>
+            <h3>Write once</h3>
+            <p>Use a free NFC app to write your card, link, or automation. Guide included.</p>
+          </div>
+          <div class="step">
+            <span>04</span>
+            <h3>Tap any phone</h3>
+            <p>Hold near the top of an iPhone or the back of an Android. Done.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Built to last</span>
+          <h2>Sealed ceramic. Nothing to charge.</h2>
+        </div>
+        <div class="specstrip">
+          <div><strong>Ceramic</strong><span>Hypoallergenic sealed body</span></div>
+          <div><strong>Passive NFC</strong><span>ISO 14443 tag</span></div>
+          <div><strong>Zero battery</strong><span>Never charges</span></div>
+          <div><strong>Sizes 6–13</strong><span>US ring sizes</span></div>
+        </div>
+        <p style="margin-top:24px;color:var(--muted);font-size:14px">
+          Full specs, compatibility notes, and FAQ → <a href="/specs.html" style="color:var(--gold2)">Specs & FAQ</a>
+          · See how we compare → <a href="/compare.html" style="color:var(--gold2)">Compare</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap note">
+        <img src="images/12-lifestyle-flatlay.jpg" alt="AxonRing lifestyle presentation" loading="lazy" />
+        <div>
+          <span class="eyebrow">A note from us</span>
+          <p class="quote">“We’d rather tell you the truth than invent features the hardware can’t deliver.”</p>
+          <p style="color:var(--muted);margin-bottom:18px">
+            AxonRing launched in 2026. Every claim on this site is accurate. If the ring isn’t what you expected,
+            send it back within 30 days for a full refund. Human support replies within one business day.
+          </p>
+          <a class="btn secondary" href="mailto:support@axonring.com">Email support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Before you buy</h2>
+        </div>
+        <details>
+          <summary>Can it make contactless payments at stores?</summary>
+          <p>No. It has no secure payment element. It can hold a payment link (Venmo, PayPal.me, etc.) that opens on someone else’s phone when they tap you. That is not the same as tapping a Visa terminal.</p>
+        </details>
+        <details>
+          <summary>Does it track health or sleep?</summary>
+          <p>No. There are no sensors and no battery. It is not a health tracker.</p>
+        </details>
+        <details>
+          <summary>Will it open my office or apartment door?</summary>
+          <p>Only if your access system accepts a standard NFC credential and your administrator is willing to enroll the ring. Many modern systems can; many older proprietary ones cannot. Check with your building first.</p>
+        </details>
+        <details>
+          <summary>Does it need charging?</summary>
+          <p>Never. The chip is passive and draws power from the phone reading it.</p>
+        </details>
+        <details>
+          <summary>What phones work?</summary>
+          <p>Any iPhone 7 or newer and virtually all Android phones with NFC. The other person does not need an app installed.</p>
+        </details>
+        <p style="margin-top:24px"><a class="btn secondary" href="/specs.html">Full specs & FAQ</a></p>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <span class="eyebrow">Ready when you are</span>
+        <h2>Wear something that works as described.</h2>
+        <p>Free sizing kit. 30-day returns. One-time purchase — no subscription, ever.</p>
+        <a class="btn primary" href="#collection">Shop the Collection</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerin">
+      <div>© 2026 AxonRing. Honest product. Clear claims.</div>
+      <div class="smalllinks">
+        <a href="/compare.html">Compare</a>
+        <a href="/specs.html">Specs</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:hello@axonring.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
